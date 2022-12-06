@@ -1,0 +1,38 @@
+
+#------------Sets----------
+#Sets - Collection which is mutable, ordered,unindexed, No duplicate values
+myset={"whhe","dhf","hd"}
+
+#myset.add("hey")
+#myset.remove("dhf")
+#myset.clear()
+#myset.update(newset)
+#myset.union(newset)
+#myset.intersection(newset)
+#myset.difference(newset)
+#myset.symmetric_difference(newset)
+
+for i in u:
+  print(i)
+
+#--------Dictionary--------
+dictionary - mutable , unorderec , collectioin of unique value sin the form key:value
+             fast bcoz it uses hashing , allow us to access quickly
+             
+capital={"USA":"Washington DC".
+         "China":"Beijing",
+         "Poland" : "Warsaw"}
+         
+#Access values:
+
+print(capital["USA"])
+print(capital.get("USA"))
+print(capital.keys())
+print(capital.values())
+print(capital.items())
+print(capital.update(key:value))
+print(capital.pop(key))
+print(capital.clear())
+
+
+
