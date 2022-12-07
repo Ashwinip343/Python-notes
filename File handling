@@ -1,0 +1,97 @@
+from os import *
+
+#-----------File-detection------------
+#path.exsists(pathname)
+#path.isfile(filename)
+
+p="path of textfile"
+if path.exists(p):
+    print("Path exists")
+    if path.isfile(p):
+      print("This is a file")
+    elif path.isdir(p):
+      print("THis is a directory")
+    else
+else:
+    print("Path doesnt exist")
+
+#----------Read&Write-----------------
+#with open("textfil.txt") as file:        -read
+#with open("textfil.txt","w") as file:    -write
+#with open("textfil.txt","a") as file:    -append
+
+#just myfile.txt - if exsits in the same directory
+#otherwise whole pathname \\ 
+
+try:
+    with open(filepath) as file:                    #with - close the file automatically
+        print(file.read())
+ except FileNotFoundError:
+    print("File not found :(")
+
+
+text="Hello\nThis is Ashwini"                       
+with open("Textfile.txt",w) as file:                           # W mode overwrites
+    file.write(text)
+    
+
+with open("Textfile.txt",a) as file:                           # Appending the data in the file
+    file.write(text)
+    
+    
+    
+#--------------Copy a file -------------------------------------
+
+from shutil import *
+
+#copyfile() - copies content of the file
+#copy() - copyfiles()+permission mode + destination can be direvtpry
+#copy2() - copy() + copies metadata(File's creation and modification times)
+
+copyfile('sourcefile.txt','destinationfile.txt')
+
+#----------------------Move a file----------------------------
+
+source="source.txt"
+desti="C:\\Users\\Cakow\\Desktop\\test.txt"
+
+
+try:
+    if path.exists(desti):
+        print("File already exists")
+    else:
+        replace(source,desti)
+        print(source+"moved")
+        
+except FileNotFoundError:
+    print(source+" not found")
+  
+  
+#---------------Delete a file----------------------------------------
+
+try:
+    remove(filename)                #delte a file
+    rmdir(directoryname)            #deletes and empty directory
+    shutil.rmtree(path)             #delete a directory containing files
+except FileNotFoundError:
+    print("File not found")
+except PermissionError:
+    print("You do not have the permission to delete a file")
+else:
+    print("File deleted")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
