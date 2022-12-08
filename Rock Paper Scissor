@@ -1,0 +1,48 @@
+from random import *
+
+ch=["rock","paper","scissors"]
+
+comp=choice(ch)
+
+while(True):
+    player=str(input("Rock ,paper, or scissors (0 to exit)")).lower()
+    
+    if player==comp:
+        print("Computer:",comp)
+        print("Player:",player)
+        print("Tie!")
+    elif player=="rock":
+        if comp=="paper":
+            print("Computer:",comp)
+            print("Player:",player)
+            print("You lose!")
+        if comp == " scissors":
+            print("Computer:",comp)
+            print("Player:",player)
+            print("You win!")
+
+    elif player=="scissors":
+        if comp=="rock":
+            print("Computer:",comp)
+            print("Player:",player)
+            print("You lose!")
+        if comp == "paper":
+            print("Computer:",comp)
+            print("Player:",player)
+            print("You win!")
+
+    elif player=="paper":
+        if comp=="scissors":
+            print("Computer:",comp)
+            print("Player:",player)
+            print("You lose!")
+        if comp == "rock":
+            print("Computer:",comp)
+            print("Player:",player)
+            print("You win!")
+
+    elif player=="0":
+        print("Game ending......")
+        break;
+    
+    
