@@ -1,0 +1,111 @@
+#------------------------------------------------------Image capturing--------------------------------------------------------
+
+import cv2
+# cv2.imshow("Gray Scale Image", cv2.cvtColor(img, cv2.COLOR_BGR2GRAY))
+# cv2.imshow("Blurred Image", cv2.GaussianBlur(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), (7, 7), 0))
+
+
+img = cv2.imread("C://Users//patil//OneDrive//Desktop//nychd.jpg")
+cv2.imshow("NEW YORK CITY", img)
+cv2.waitKey(0)  # to show it infinitely
+
+cv2.imshow("Resized image ",cv2.resize(img,(300,200)))
+
+imggrey= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+cv2.imshow("The Grey Scale image",imggrey)
+cv2.waitKey(0)
+
+
+imgblur=cv2.GaussianBlur(img,(7,7),0)
+cv2.imshow("THe blurred image",imgblur)
+cv2.waitKey(0)
+
+
+imgcanny=cv2.Canny(img,300,300)
+cv2.imshow("CANNY IMAGE",imgcanny)
+cv2.waitKey(0)
+
+# imgd=cv2.dilate(imgcanny,)
+
+# cap = cv2.VideoCapture(0)  # take the video from webcam
+# cap.set(3, 740)            # width  -3
+# cap.set(4, 500)            #height - 4
+# cap.set(10, 150)           # intensity-10
+# cap.set(11,890)
+#
+# print("A to quit")
+# while True:
+#     success, img = cap.read()
+#     cv2.imshow("Random Video", img)
+#     if cv2.waitKey(1) & 0xFF == ord("a"):
+#         break
+
+
+
+#----------------------------------------------------Image processing----------------------------------------------------------
+
+import cv2
+import numpy as np
+
+img=cv2.imread("C://Users//patil//OneDrive//Desktop//nychd.jpg")
+#cv2.imshow("NYC",img)
+print(np.shape(img))
+imgnew=cv2.resize(img,(500,500))
+
+cv2.imshow("NYC",imgnew) 
+cv2.waitKey(2000)
+cv2.imshow("Processsed IMage",cv2.cvtColor(imgnew,cv2.COLOR_BGR2HSV))
+imgcany=cv2.Canny(imgnew,100,100)
+cv2.imshow("Canny Image",imgcany)
+
+cv2.waitKey(3000)
+
+
+#---------------------------Pattern using opencv---------------------------------------------------------------------------------------
+import cv2
+import numpy as np
+
+#0-black
+#1-white
+img = np.zeros((512,512,3),np.uint8)
+
+# img[100:200,150:350]=255,0,255
+# img[200:300,150:350]=255,255,200
+
+#cv2.line(img,(start_width,start_height),(end_width,end_height),linewidth)
+#cv2.rectangle(img,(a,b),(c,d),(b,g,r),width))
+#cv2.circle(img,(radius,radius),width,(B,G,R))
+
+
+cv2.line(img,(0,0),(256,256),(0,255,0),2)
+cv2.line(img)
+
+
+cv2.line(img,(512,0),(256,256),(0,255,0),2)
+cv2.line(img,(0,512),(256,256),(0,255,0),2)
+cv2.line(img,(512,512),(256,256),(0,255,0),2)
+
+#
+cv2.rectangle(img,(0,0),(256,256),(255,0,0),4)
+cv2.rectangle(img,(512,0),(256,256),(255,0,0),4)
+cv2.rectangle(img,(0,512),(256,256),(255,0,0),4)
+cv2.rectangle(img,(512,512),(256,256),(255,0,0),4)
+cv2.circle(img,(256,256),256,(0,0,255),4,cv2.FILLED)
+cv2.circle(img,(256,256),230,(255,0,0),4)
+cv2.circle(img,(256,256),210,(0,255,0),4)
+
+
+cv2.putText(img,"OPENCV",(70,270),cv2.FONT_HERSHEY_COMPLEX,3,(255,255,0),5)
+
+cv2.imshow("Zero",img)
+cv2.waitKey(2000)
+h=np.hstack((img,img))
+
+cv2.imshow("Resized",cv2.resize(h,(300,300)))
+
+cv2.imshow("Horizontal STack images",cv2.resize(h,(300,300)))
+cv2.imshow("Vertical",np.vstack((cv2.resize(h,(300,300)),cv2.resize(h,(300,300)))))
+
+cv2.waitKey(5000)
+
+
